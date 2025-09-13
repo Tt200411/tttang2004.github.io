@@ -47,7 +47,7 @@ jobs:
       - name: Install dependencies
         run: |
           if [ -f "package.json" ]; then
-            npm ci
+            npm install
           fi
           hugo mod tidy
           
