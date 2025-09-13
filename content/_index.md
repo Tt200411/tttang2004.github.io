@@ -31,14 +31,14 @@ sections:
         shape: circle # Options: circle (default), square, rounded
   - block: markdown
     content:
-      title: '🧠 我的研究领域'
+      title: '🧠 My Research'
       subtitle: ''
       text: |-
-        专注于可解释性深度学习、机器学习和最优化理论研究。我在香港中文大学（深圳）大数据研究院担任研究助理，致力于将混沌动力学理论应用于金融预测和时间序列分析。
+        I am focused on explainable deep learning, machine learning, and optimization theory research. As a research assistant at CUHK-Shenzhen Research Institute of Big Data, I am committed to applying chaos dynamics theory to financial forecasting and time series analysis.
 
-        当前研究重点包括：开发基于Lee振荡器的混沌神经网络架构、设计多重分形特征提取算法、以及构建鲁棒的深度学习预测模型。我的工作已投稿至多个顶级期刊，包括Chaos, Solitons & Fractals和IEEE TNNLS等。
+        Current research focuses include: developing chaotic neural network architectures based on Lee oscillators, designing multifractal feature extraction algorithms, and constructing robust deep learning prediction models. My work has been submitted to several top-tier journals, including Chaos, Solitons & Fractals and IEEE TNNLS.
 
-        欢迎学术交流与合作 😃
+        Welcome academic exchanges and collaboration 😃
     design:
       columns: '1'
   - block: collection
