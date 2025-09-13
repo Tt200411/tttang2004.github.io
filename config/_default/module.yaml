@@ -1,25 +1,7 @@
 ############################
-## HUGO MODULES
-## Install or uninstall themes and plugins here.
-## Docs: https://gohugo.io/hugo-modules/
+## HUGO MODULES - SIMPLIFIED
+## Minimal configuration for stable deployment
 ############################
 
-imports:
-  - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify
-  - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-bootstrap/v5
-
-# Install any Hugo Blox within the `hugo-blox/blox/` folder
-mounts:
-  - source: hugo-blox/blox/community
-    target: layouts/_partials/blox/community/
-    includeFiles: '**.html'
-  - source: hugo-blox/blox/all-access
-    target: layouts/_partials/blox/
-    includeFiles: '**.html'
-  - source: hugo-blox/blox
-    target: assets/dist/community/blox/
-    includeFiles: '**.css'
-  - source: layouts
-    target: layouts
-  - source: assets
-    target: assets
+# No external module imports - use built-in Hugo functionality
+# This eliminates complex dependencies and version conflicts
