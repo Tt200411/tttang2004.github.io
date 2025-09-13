@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交互式振荡器控制器 - 唐宝学术博客</title>
+    
+    <!-- noUiSlider CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css">
+    
+    <!-- Custom CSS for academic styling -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .controls-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .control-group {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .control-group label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: block;
+            font-size: 16px;
+        }
+        
+        .slider-container {
+            margin: 15px 0;
+        }
+        
+        .value-display {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #667eea;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .visualization-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .visualization-container h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        #oscillator-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-link:hover {
+            background: #5a6fd8;
+        }
+        
+        @media (max-width: 768px) {
+            .controls-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>交互式振荡器控制器</h1>
+        <p>实时调节参数，观察正弦波形变化</p>
+        <a href="../../../" class="back-link">← 返回博客首页</a>
+    </div>
+
+    <div class="controls-container">
+        <div class="control-group">
+            <label>频率 (Frequency)</label>
+            <div class="slider-container">
+                <div id="frequency-slider"></div>
+            </div>
+            <div class="value-display" id="frequency-value">1.0 Hz</div>
+        </div>
+
+        <div class="control-group">
+            <label>振幅 (Amplitude)</label>
+            <div class="slider-container">
+                <div id="amplitude-slider"></div>
+            </div>
+            <div class="value-display" id="amplitude-value">2.0</div>
+        </div>
+
+        <div class="control-group">
+            <label>相位 (Phase)</label>
+            <div class="slider-container">
+                <div id="phase-slider"></div>
+            </div>
+            <div class="value-display" id="phase-value">0.0 rad</div>
+        </div>
+    </div>
+
+    <div class="visualization-container">
+        <h2>振荡器波形可视化</h2>
+        <img id="oscillator-img" src="" alt="波形图加载中..." class="loading">
+        <p><small>拖动上方滑块实时更新波形图</small></p>
+    </div>
+
+    <!-- noUiSlider JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+    
+    <script>
+        // API配置 - 将来会指向你的后端API
+        const API_BASE_URL = 'https://your-api-domain.vercel.app'; // 需要配置实际API地址
+        
+        // 初始化滑块
+        const freqSlider = document.getElementById('frequency-slider');
+        const ampSlider = document.getElementById('amplitude-slider');
+        const phaseSlider = document.getElementById('phase-slider');
+
+        // 频率滑块：0.1~10 Hz，默认1 Hz，步长0.1
+        noUiSlider.create(freqSlider, {
+            start: [1.0],
+            range: { min: 0.1, max: 10.0 },
+            step: 0.1,
+            connect: [true, false],
+            format: {
+                to: function(value) { return parseFloat(value).toFixed(1); },
+                from: function(value) { return parseFloat(value); }
+            }
+        });
+
+        // 振幅滑块：0.5~5.0，默认2.0
+        noUiSlider.create(ampSlider, {
+            start: [2.0],
+            range: { min: 0.5, max: 5.0 },
+            step: 0.1,
+            connect: [true, false],
+            format: {
+                to: function(value) { return parseFloat(value).toFixed(1); },
+                from: function(value) { return parseFloat(value); }
+            }
+        });
+
+        // 相位滑块：0~2π，默认0
+        noUiSlider.create(phaseSlider, {
+            start: [0.0],
+            range: { min: 0.0, max: 6.28 }, // 2π≈6.28
+            step: 0.01,
+            connect: [true, false],
+            format: {
+                to: function(value) { return parseFloat(value).toFixed(2); },
+                from: function(value) { return parseFloat(value); }
+            }
+        });
+
+        // 更新振荡器参数和可视化
+        function updateOscillator() {
+            // 获取当前滑块值
+            const frequency = parseFloat(freqSlider.noUiSlider.get());
+            const amplitude = parseFloat(ampSlider.noUiSlider.get());
+            const phase = parseFloat(phaseSlider.noUiSlider.get());
+
+            // 更新显示值
+            document.getElementById('frequency-value').textContent = `${frequency} Hz`;
+            document.getElementById('amplitude-value').textContent = amplitude;
+            document.getElementById('phase-value').textContent = `${phase} rad`;
+
+            // 调用后端API生成图像
+            // 暂时使用占位图片，等后端API部署后替换
+            callOscillatorAPI(frequency, amplitude, phase);
+        }
+
+        async function callOscillatorAPI(frequency, amplitude, phase) {
+            try {
+                // 在实际部署时，这里会调用真实的API
+                const response = await fetch(`${API_BASE_URL}/api/generate_oscillator`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ frequency, amplitude, phase })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API调用失败');
+                }
+
+                const data = await response.json();
+                
+                // 更新图像
+                const imgElement = document.getElementById('oscillator-img');
+                imgElement.src = `data:image/png;base64,${data.img_base64}`;
+                imgElement.alt = `频率${frequency}Hz, 振幅${amplitude}, 相位${phase}rad的正弦波`;
+                imgElement.className = '';
+                
+            } catch (error) {
+                console.error('API调用错误:', error);
+                
+                // 临时解决方案：显示参数化的占位图
+                displayPlaceholderWave(frequency, amplitude, phase);
+            }
+        }
+
+        // 临时方案：使用Canvas绘制简单波形
+        function displayPlaceholderWave(frequency, amplitude, phase) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 800;
+            canvas.height = 400;
+            const ctx = canvas.getContext('2d');
+            
+            // 设置样式
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3;
+            
+            // 绘制坐标轴
+            ctx.strokeStyle = '#ddd';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height / 2);
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.moveTo(canvas.width / 2, 0);
+            ctx.lineTo(canvas.width / 2, canvas.height);
+            ctx.stroke();
+            
+            // 绘制正弦波
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            const centerY = canvas.height / 2;
+            const scaleX = canvas.width / (4 * Math.PI); // 显示4π的范围
+            const scaleY = (canvas.height * 0.4) / 5; // 最大振幅5的缩放
+            
+            for (let x = 0; x < canvas.width; x++) {
+                const t = x / scaleX;
+                const y = amplitude * Math.sin(2 * Math.PI * frequency * t / 10 + phase);
+                const canvasY = centerY - y * scaleY;
+                
+                if (x === 0) {
+                    ctx.moveTo(x, canvasY);
+                } else {
+                    ctx.lineTo(x, canvasY);
+                }
+            }
+            ctx.stroke();
+            
+            // 添加参数标签
+            ctx.fillStyle = '#2c3e50';
+            ctx.font = '16px Arial';
+            ctx.fillText(`f=${frequency}Hz, A=${amplitude}, φ=${phase}rad`, 20, 30);
+            
+            // 转换为图片并显示
+            const imgElement = document.getElementById('oscillator-img');
+            imgElement.src = canvas.toDataURL();
+            imgElement.className = '';
+        }
+
+        // 绑定滑块事件
+        freqSlider.noUiSlider.on('update', updateOscillator);
+        ampSlider.noUiSlider.on('update', updateOscillator);
+        phaseSlider.noUiSlider.on('update', updateOscillator);
+
+        // 初始化时生成一次图像
+        updateOscillator();
+    </script>
+</body>
+</html>

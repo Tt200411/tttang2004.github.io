@@ -1,20 +1,20 @@
 ---
 # Display name
-title: Alex Johnson
+title: Boyan Tang
 
 # Name pronunciation (optional)
-name_pronunciation: ''
+name_pronunciation: 'Bo-yan Tang'
 
 # Full name (for SEO)
-first_name: Alex
-last_name: Johnson
+first_name: Boyan
+last_name: Tang
 
 # Pronouns (optional)
 pronouns: he/him
 
 # Status emoji
 status:
-  icon: 🚀
+  icon: 🧠
 
 # Is this the primary user of the site?
 superuser: true
@@ -23,147 +23,146 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Senior AI Research Scientist
+role: AI Research Assistant & Undergraduate Student
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Meta AI
-    url: https://ai.meta.com/
+  - name: Beijing Normal-Hong Kong Baptist University
+    url: https://www.uic.edu.cn/
+  - name: CUHK-Shenzhen Research Institute of Big Data
+    url: https://ribd.cuhk.edu.cn/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:alex.johnson@meta.com'
-    label: E-mail Me
-  - icon: brands/x
-    url: https://twitter.com/AlexAIResearch
+    url: 'mailto:s230034047@mail.uic.edu.cn'
+    label: 学术邮箱
+  - icon: at-symbol
+    url: 'mailto:tttang2004@gmail.com'
+    label: 个人邮箱
   - icon: brands/github
-    url: https://github.com/alexjohnsonai
-  - icon: brands/linkedin
-    url: https://www.linkedin.com/in/alexjohnsonai/
-  - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=alexjohnson
-  - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-1825-0097
+    url: https://github.com/tttang2004
+  - icon: phone
+    url: 'tel:+86-135-3519-0418'
+    label: Phone
 
 interests:
-  - Large Language Models
-  - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - 可解释性深度学习
+  - 机器学习
+  - 最优化理论
+  - 混沌动力学与金融预测
+  - 时间序列分析
+  - 神经网络架构设计
 
 education:
-  - area: PhD Computer Science (AI Focus)
-    institution: Stanford University
-    date_start: 2015-09-01
-    date_end: 2019-06-30
+  - area: Bachelor of Science (Honour) in Artificial Intelligence
+    institution: Beijing Normal-Hong Kong Baptist University
+    date_start: 2022-09-01
+    date_end: 2026-06-30
     summary: |
-      Thesis on _Scaling Laws for Neural Language Models_. Supervised by Prof. Andrew Ng. Published 5 papers in NeurIPS and ICML, with 2 best paper awards.
-    button:
-      text: 'Read Thesis'
-      url: 'https://example.com/thesis.pdf'
-  - area: MS Computer Science
-    institution: Carnegie Mellon University
-    date_start: 2013-09-01
-    date_end: 2015-05-31
+      GPA: 3.4/4.0
+      
+      专注于机器学习、深度学习和优化理论。参与多项人工智能研究项目，在混沌动力学与金融预测方面有突出贡献。
+  - area: Summer Program in Artificial Intelligence and Machine Learning
+    institution: University of Oxford
+    date_start: 2024-08-01
+    date_end: 2024-08-31
     summary: |
-      GPA: 4.0/4.0
-
-      Specialized in machine learning and robotics.
-  - area: BS Computer Science
-    institution: MIT
-    date_start: 2009-09-01
-    date_end: 2013-05-31
-    summary: |
-      GPA: 3.9/4.0
-
-      Minored in Mathematics. President of AI Club.
+      Top 1 of the program
+      
+      深入学习最新的AI算法和理论，与国际顶尖学者交流学术思想。
 
 work:
-  - position: Senior AI Research Scientist
-    company_name: Meta AI
-    company_url: 'https://ai.meta.com/'
+  - position: Research Assistant
+    company_name: CUHK-Shenzhen Research Institute of Big Data
+    company_url: 'https://ribd.cuhk.edu.cn/'
     company_logo: ''
-    date_start: 2020-01-01
+    date_start: 2024-07-01
     date_end: ''
     summary: |2-
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models. 50+ citations in 3 years.
-  - position: AI Research Intern
-    company_name: OpenAI
-    company_url: 'https://openai.com/'
-    company_logo: ''
-    date_start: 2019-06-01
-    date_end: 2019-12-31
-    summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
+      参与7个人工智能、运筹学、优化等研究项目，负责文献综述、问题分析、解决方案设计以及编程实验。
+      
+      • 在地铁项目中开发基于机器学习的时间序列拟合方法，准确率比传统方法提升14.775%
+      • 将复杂的混合整数逆问题重构为线性规划模型，计算时间从24+小时缩短至约30分钟
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 skills:
-  - name: Technical Skills
+  - name: 编程技能
     items:
       - name: Python & PyTorch
         description: ''
         percent: 95
         icon: code-bracket
-      - name: Machine Learning
+      - name: Machine Learning & Deep Learning
         description: ''
-        percent: 100
+        percent: 90
         icon: chart-bar
-      - name: Cloud Computing (AWS/GCP)
+      - name: C/Java/R
         description: ''
         percent: 85
-        icon: cloud
-  - name: Hobbies
+        icon: code-bracket
+  - name: 研究领域
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking in the Rockies
-        description: ''
-        percent: 80
-        icon: person-simple-walk
-      - name: Building Custom PCs
+      - name: 优化理论
         description: ''
         percent: 90
         icon: cpu-chip
-      - name: Sci-Fi Reading
+      - name: 时间序列分析
         description: ''
-        percent: 70
-        icon: book-open
+        percent: 85
+        icon: chart-bar
+      - name: 混沌动力学
+        description: ''
+        percent: 80
+        icon: variable
 
 languages:
-  - name: English
+  - name: 中文 (普通话)
     percent: 100
-  - name: Spanish
-    percent: 50
+  - name: English
+    percent: 95
 
 # Awards.
 #   Add/remove as many awards below as you like.
 #   Only `title`, `awarder`, and `date` are required.
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: Best Paper Award
-    url: https://neurips.cc/
-    date: '2022-12-01'
-    awarder: NeurIPS
+  - title: Best Oral Presentation
+    url: '#'
+    date: '2025-03-01'
+    awarder: AAIEE 2025
     icon: hero/trophy
     summary: |
-      Awarded for groundbreaking work on efficient training of large models.
-  - title: AI Innovation Grant
-    url: https://www.nsf.gov/
-    date: '2021-06-15'
-    awarder: National Science Foundation
-    icon: hero/currency-dollar
-    summary: |
-      $500,000 grant for research in ethical AI development.
-  - title: Outstanding PhD Thesis
-    url: https://www.stanford.edu/
-    date: '2019-06-30'
-    awarder: Stanford University
+      在AAIEE 2025会议上获得最佳口头报告奖
+  - title: Honourable Mention
+    url: '#'
+    date: '2024-04-01'
+    awarder: Mathematical Contest in Modelling
     icon: hero/academic-cap
     summary: |
-      Recognized for contributions to scaling laws in deep learning.
+      2024年美国大学生数学建模竞赛荣誉奖
+  - title: 国家三等奖
+    url: '#'
+    date: '2023-11-01'
+    awarder: 中国大学生数学建模竞赛
+    icon: hero/trophy
+    summary: |
+      2023年中国大学生数学建模竞赛国家三等奖
+  - title: First Class Scholarship
+    url: '#'
+    date: '2024-06-01'
+    awarder: Beijing Normal-Hong Kong Baptist University
+    icon: hero/currency-dollar
+    summary: |
+      2023-2024学年一等奖学金
 ---
 
-Alex Johnson is a Senior AI Research Scientist at Meta AI, where he leads groundbreaking work on large language models and multimodal systems. His research has been published in top conferences like NeurIPS and ICML, with over 10,000 citations. Alex is passionate about pushing the boundaries of AI while ensuring ethical development. Outside of work, he enjoys hiking in the Rockies, building custom PCs, and mentoring the next generation of AI talent.
+唐博岩是一名专注于人工智能研究的本科生，目前就读于北师港浸大人工智能专业。他在香港中文大学（深圳）大数据研究院担任研究助理，参与多项前沿AI研究项目。
+
+他的研究兴趣集中在可解释性深度学习、机器学习和最优化理论，特别是在混沌动力学与金融预测、时间序列分析和神经网络架构设计方面有深入研究。目前作为第一作者或共同作者发表多篇论文，其中包括投稿至顶级期刊的FCOC框架和COTN网络等创新工作。
+
+唐博岩曾在牛津大学人工智能与机器学习暑期项目中取得第一名的优异成绩，并在多项国际国内竞赛中获奖，展现出优秀的学术实力和创新能力。他致力于将理论研究与实际应用相结合，推动AI技术的发展与应用。

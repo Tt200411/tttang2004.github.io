@@ -31,14 +31,14 @@ sections:
         shape: circle # Options: circle (default), square, rounded
   - block: markdown
     content:
-      title: '📚 My Research'
+      title: '🧠 我的研究领域'
       subtitle: ''
       text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
+        专注于可解释性深度学习、机器学习和最优化理论研究。我在香港中文大学（深圳）大数据研究院担任研究助理，致力于将混沌动力学理论应用于金融预测和时间序列分析。
 
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
+        当前研究重点包括：开发基于Lee振荡器的混沌神经网络架构、设计多重分形特征提取算法、以及构建鲁棒的深度学习预测模型。我的工作已投稿至多个顶级期刊，包括Chaos, Solitons & Fractals和IEEE TNNLS等。
 
-        Please reach out to collaborate 😃
+        欢迎学术交流与合作 😃
     design:
       columns: '1'
   - block: collection

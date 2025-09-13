@@ -4,16 +4,16 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 # Website name
-title: Hugo Academic CV Theme
+title: 唐博岩的学术博客
 # Website URL
-baseURL: 'https://example.com/'
+baseURL: 'https://tttang2004.cn/'
 
 ############################
 ## LANGUAGE
 ############################
 
-defaultContentLanguage: en
-hasCJKLanguage: false
+defaultContentLanguage: zh
+hasCJKLanguage: true
 defaultContentLanguageInSubdir: false
 removePathAccents: true
 
