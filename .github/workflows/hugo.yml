@@ -33,22 +33,14 @@ jobs:
         with:
           go-version: '1.21'
           
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.148.2'
           extended: true
           
-      - name: Install dependencies
+      - name: Initialize Hugo modules
         run: |
-          if [ -f "package.json" ]; then
-            npm install
-          fi
           hugo mod tidy
           
       - name: Setup Pages
